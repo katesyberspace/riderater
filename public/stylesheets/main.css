@@ -87,7 +87,7 @@ section {
   width: 100%;
   font-size: 1.6em;
   color: rgb(255, 255, 255);
-  margin: 0 2vw;
+  margin-left: 2vw;
 }
 
 .changes {
@@ -103,7 +103,7 @@ section {
   color: white;
   overflow: auto;
   display: block;
-  margin: 0 2vw;
+  margin-left: 2vw;
 }
 
 
@@ -114,7 +114,7 @@ section {
   justify-content: space-between;
   align-items: baseline;
   margin: 2vw;
-  background-color: #006666;
+  background-color: #0eb9b9;
   margin: 0;
   padding: 0 2vw;
   font-size: 1em;

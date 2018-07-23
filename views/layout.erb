@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>riderater - rate your fellow tram passengers</title>
+  <link rel='stylesheet' href='/stylesheets/main.css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Pattaya|Poppins" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>riderater</h1>
+
+    <nav>
+    <% if logged_in? %>
+      <span><i class="material-icons" style="font-size:36px">tram</i> <%= current_user.name%></span>
+      <form action="/session" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button>logout</button>
+      </form>
+
+    <% else %>
+      <a href="/login">login</a>
+    <% end %>
+    </nav>
+  </header>
+
+  <%= yield %>
+
+</body>
+</html>

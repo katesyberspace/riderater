@@ -1,0 +1,50 @@
+<section class="rider">
+  <div class="rider-img">
+    <% if @rider.img_url == nil%>
+      <img src="/images/alien.png" alt="Picture of <%=@rider.name%>">
+    <% else %>
+      <img src="<%=@rider.img_url%>" alt="Picture of <%=@rider.name%>">
+    <% end %>
+  </div>
+  <div class="rider-details">
+    <h2> <%=@rider.name%></h2>
+    <p><%=@rider.age%> years old</p>
+    <p>Boards the tram at: <%=@rider.board_at%></p>
+    <p>Alights the tram at: <%=@rider.alight_at%></p>
+    <nav class = "changes">
+      <form action="/">
+        <button>home</button>
+      </form>
+    <% if logged_in? %>
+      <a href="/riders/<%= @rider.id%>/edit">edit</a>
+
+      <form action="/riders/<%=@rider.id%>" method = "post">
+        <input type="hidden" name = "_method" value = "delete">
+        <button>delete</button>
+      </form>
+    <% end %>
+    </nav>
+  </div>
+</section>
+
+<% if @rider.reviews.count == 0 %>
+<% else %>
+  <section class="reviews">
+  <h3>reviews for <%=@rider.name%></h3>
+
+  <% @rider.reviews.each do |review|%>
+    <p>"<%=review.content%>"</p>
+  <% end %>
+  </section> 
+<% end %>
+
+<% if logged_in? %>
+  <section class="reviews-content">
+    <form action="/reviews/new" method="post">
+      <input type = "hidden" name="id" value="<%=@rider.id%>">
+      <input type="text" name="content">
+      <button>add review</button>
+    </form>
+  </section>
+
+<% end %>

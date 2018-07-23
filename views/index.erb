@@ -1,0 +1,18 @@
+<div class="title-add">
+  <h1>passengers currently on board:</h1>
+
+<% if logged_in?%>
+  <a href="riders/new"><i class="material-icons" style="font-size:36px">person_pin</i>add new passenger</a>
+<% end %>
+
+</div>
+
+<div class = "riders-list">
+  <% @riders.each do |rider|%>
+    <p>
+      <a href="/riders/<%=rider.id%>">
+        <%=rider.name%>
+      </a>
+    </p>
+  <% end %>
+</div>
